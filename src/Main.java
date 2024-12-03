@@ -13,8 +13,9 @@ public class Main {
             System.out.println("2. Agregar elementos a la tabla hash");
             System.out.println("3. Mostrar tabla hash");
             System.out.println("4. Buscar un elemento en la tabla hash");
-            System.out.println("5. Búsqueda secuencial");
-            System.out.println("6. Salir");
+            System.out.println("5. Busqueda secuencial");
+            System.out.println("6. Busqueda binaria");
+            System.out.println("7. Salir");
             System.out.print("Selecciona una opción: ");
 
             int opcion = scanner.nextInt();
@@ -74,6 +75,26 @@ public class Main {
                     }
                     break;
                 case 6:
+                    System.out.print("Ingresa los elementos del arreglo ordenados y separados por comas: ");
+                    String[] ar = scanner.nextLine().split(",");
+                    int[] arr = new int[ar.length];
+                    for (int i = 0; i < ar.length; i++) {
+                        arr[i] = Integer.parseInt(ar[i]);
+                    }
+
+                    System.out.print("Ingresa el elemento a buscar: ");
+                    int busc = scanner.nextInt();
+
+                    Binario binario = new Binario();
+                    int resbin = binario.busquedaBinaria(arr, busc);
+
+                    if (resbin == -1) {
+                        System.out.println("Elemento no encontrado.");
+                    } else {
+                        System.out.println("Elemento encontrado en el índice: " + resbin);
+                    }
+                    break;
+                case 7:
                     continuar = false;
                     break;
                 default:
